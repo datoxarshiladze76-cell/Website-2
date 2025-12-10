@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gay Mode Toggle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            transition: background 0.4s, color 0.4s;
+        }
+    
+        /* Toggle switch container */
+        .switch {
+            position: relative;
+            width: 60px;
+            height: 35px;
+            display: inline-block;
+            border-radius: 50px; /* makes it fully rounded */
+        }
+
+    .switch input {
+      display: none; /* hide checkbox */
+    }
+
+    /* The slider/knob */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        background-color: #ccc;
+        border-radius: 30px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: 0.3s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 5px;
+        background-color: white;
+        border-radius: 50%; /* makes the knob circular */
+        transition: 0.3s;
+    }
+
+    input:checked + .slider {
+        background-color: #4caf50;
+    }
+    input:checked + .slider:before {
+        transform: translateX(30px);
+    }
+
+    .label-text {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    
+    /* Rainbow Mode */
+    .rainbow {
+        background: linear-gradient(45deg, red, orange, yellow, green, lightblue, blue, indigo, violet);
+        color: white; 
+        min-height: 100vh; /* fill whole screen */
+    }
+
+    /* Heading transition */
+    #modeLabel {
+        transition: color 0.4s;
+    }
+
+    /* body transition */
+    body:not(.rainbow) 
+    #modeLabel {
+        transition: color 0.4s;
+    }
+    #modeLabel {
+        color: white;
+    }
+    </style>
+</head>
+<body>
+<h1>Hey guys, choose your personality for today</h1>
+
+<h2 id="modeLabel">Gay Mode: OFF</h2>
+
+<body>
+
+  <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider"></span>
+  </label>
+
+  <script>
+  window.onload = function() {
+      const toggle = document.getElementById("modeToggle");
+      const modeLabel = document.getElementById("modeLabel");
+
+      toggle.addEventListener("change", () => {
+          if (toggle.checked) {
+              document.body.classList.add("rainbow");
+              modeLabel.textContent = "Gay Mode: ON";
+          } else {
+              document.body.classList.remove("rainbow");
+              modeLabel.textContent = "Gay Mode: OFF";
+          }
+      });
+  };
+  </script>
+
+<h3>Straight Mode :(</h3>
+<!-- Toggle2 switch -->
+  <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider"></span>
+  </label>
+</body>
